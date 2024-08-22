@@ -70,9 +70,13 @@
 
         /* Table styles */
         table {
-            border-collapse: collapse;
+            /* border-collapse: collapse;
             width: 100%;
-            margin: 20px 0;
+            margin: 20px 0; */
+            width: 100%;
+            max-width: calc(100% - 40px);
+            /* 40px = 20px left margin + 20px right margin */
+            margin: 0 20px;
         }
 
         th,
@@ -155,12 +159,14 @@
             <th>Дата</th>
             <th>Продолжительность парковки</th>
             <th>Местоположение парковки</th>
+            <th>Код парковки</th>
         </tr>
         {% for history in data.parking_history %}
         <tr>
             <td>{{ history.date }}</td>
             <td>{{ history.duration }}</td>
             <td>{{ history.location }}</td>
+            <td>histori.parking.code</td>
         </tr>
         {% endfor %}
     </table>
