@@ -1,22 +1,24 @@
+<!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Parking History</title>
-</head>
-
-<body>
-    <table border="1">
-        <tr>
-            <th>Дата</th>
-            <th>Время нахождения</th>
-            <th>Местоположение</th>
-        </tr>
-        <tr>
-            <td>{{ data['date'] }}</td>
-            <td>{{ data['duration'] }}</td>
-            <td>{{ data['location'] }}</td>
-        </tr>
+  </head>
+  <body>
+    <h1>Parking History for {{ data.phone }}</h1>
+    <p>Car Number: {{ data.car_number }}</p>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Duration</th>
+        <th>Location</th>
+      </tr>
+      {% for history in data.parking_history %}
+      <tr>
+        <td>{{ history.date }}</td>
+        <td>{{ history.duration }}</td>
+        <td>{{ history.location }}</td>
+      </tr>
+      {% endfor %}
     </table>
-</body>
-
+  </body>
 </html>
