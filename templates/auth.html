@@ -3,55 +3,103 @@
   <head>
     <title>Login</title>
     <script src="script.js"></script>
-   <link rel="stylesheet" href="./style/styleauth.css">
-    
   </head>
   <body>
-    <h1>Login</h1>
-    <form action="" method="post">
-        <div class="page">
-            <div class="container">
-              <div class="left">
-                <div class="login">Login</div>
-                <div class="eula">By logging in you agree to the ridiculously long terms that you didn't bother to read</div>
-              </div>
-              <div class="right">
-                <svg viewBox="0 0 320 300">
-                  <defs>
-                    <linearGradient
-                                    inkscape:collect="always"
-                                    id="linearGradient"
-                                    x1="13"
-                                    y1="193.49992"
-                                    x2="307"
-                                    y2="193.49992"
-                                    gradientUnits="userSpaceOnUse">
-                      <stop
-                            style="stop-color:#ff00ff;"
-                            offset="0"
-                            id="stop876" />
-                      <stop
-                            style="stop-color:#ff0000;"
-                            offset="1"
-                            id="stop878" />
-                    </linearGradient>
-                  </defs>
-                  <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
-                </svg>
-                <div class="form">
-                  <label for="email">Имя</label>
-                  <input type="text" id="email">
-                  <label for="password">Номер телефона</label>
-                  <input  type="text" name="phone_number" placeholder="Номер телефона" id="password">
-                  <input type="submit" id="submit" value="Вход">
-                </div>
-              </div>
-            </div>
-          </div>
-          
-    </form>
-    {% if error %}
-      <p style="color: red;">{{ error }}</p>
-    {% endif %}
-  </body>
+    <style>
+      /* add some basic styling to make the form look better */
+      .form {
+        width: 300px;
+        margin:300px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 900;
+      }
+      body {
+	background: linear-gradient(-45deg, #b1129c, #14cf33, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+      input[type="text"] {
+        width:90%;
+        height: 40px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        transition: border-color 0.3s, box-shadow 0.3s; /* add transition effect */
+      }
+      input[type="text"]:focus {
+        border-color: #aaa;
+        animation: pulse 2s infinite; /* add animation */
+      }
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        50% {
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+        100% {
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+      }
+      @keyframes buttonHover {
+  from {
+    background-color: black;
+  }
+  to {
+    background-color: #ffffff;
+  }
+}
+      input[type="submit"] {
+        width: 50%;
+        height: 40px;
+        background-color: black;
+        color: #fff;
+        padding: 10px;
+        position: relative;
+        left: 21%;
+        transition: background-color 0.3s ease-out;
+        border-radius: 25px;
+        border-color: rgb(0, 0, 0,0);
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #ffffff;
+        color: black;
+        border-color: black;
+      }
+    </style>
+   <form action="" method="post">
+    <div class="form">
+      <h1>Вход</h1>
+      <input type="text" id="phone_number" name="phone_number" placeholder="Номер телефона">
+      <input type="submit" id="submit" value="Вход">
+    </div>
+  </form>
+  <p id="greeting"></p>
+
+  
+</body>
 </html>
