@@ -3,19 +3,22 @@
   <head>
     <title>Login</title>
     <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <style>
       /* add some basic styling to make the form look better */
       .form {
-        width: 300px;
-        margin:300px auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
+  position: absolute;
+  width: 300px;
+  margin: 150px auto;
+  padding: 20px;
+  left: 40%;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
       label {
         display: block;
         margin-bottom: 10px;
@@ -88,21 +91,24 @@ background-color: white;
         color: black;
         border-color: black;
       }
-      .verh-niz {
-  position: absolute;
-  background-image: url(../static/3012489633_preview_MM_Uzor_40_f24c4bfdf2.png);
-  background-size: 50%;
-  width: 99.6%;
-  height: 18.1%;
-}
-
-#verh {
-  top: 0%;
-}
-
-#niz {
-  top: 80%;
-}
+      #verh{
+        position:relative;
+        background-image: url(../static/3012489633_preview_MM_Uzor_40_f24c4bfdf2.png);
+        background-size: contain;
+        width: 100%;
+        height: 150px;
+        top: 15%;
+        left: 0;
+      }
+      #niz{
+        position:absolute;
+        background-image: url(../static/3012489633_preview_MM_Uzor_40_f24c4bfdf2.png);
+        background-size: contain;
+        width: 100%;
+        height: 150px;
+        top: 80%;
+        left: 0;
+      }
       #logo{
         position: absolute;
         width: 8%;
@@ -112,16 +118,60 @@ background-color: white;
       p,h1{
         font-family: Inter;
       }
+      /* add media queries for responsive design */
+      @media (max-width: 770px) {
+  .form {
+    width: 250px;
+    margin: 100px auto;
+    padding: 15px;
+    left: 30%;
+  }
+  #verh, #niz {
+    width: 100%;
+    height: 100px;
+  }
+  #niz{
+    top: 750px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form {
+    width: 300px;
+    margin: 100px auto;
+    padding: 10px;
+    left: 12%;
+  }
+  #verh, #niz {
+    width: 100%;
+    height: 50px;
+  }
+  #niz{
+    top: 800px;
+  }
+}
+@media (max-width: 403px) {
+    .form {
+    width: 200px;
+    margin: 100px auto;
+    padding: 10px;
+    left: 15%;
+  }
+
+}
+
     </style>
-    <div   id="verh" alt=""></div>
+
    <form action="" method="post">
+    <div   id="verh" alt=""></div>
     <div class="form">
       <h1>Вход</h1>
       <input type="text" id="phone_number" name="phone_number" placeholder="Номер телефона">
       <input type="submit" id="submit" value="Вход">
     </div>
+    <div   id="niz" alt=""></div>
   </form>
-  <div   id="niz" alt=""></div>
+
 
 
   
