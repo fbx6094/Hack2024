@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 import json
+from flask import url_for
 import requests
 
 app = Flask(__name__)
@@ -40,17 +41,28 @@ def add_parking_spot():
 
     return jsonify({"status": "success", "message": "Парковочное место добавлено"}), 201
 
+# @app.route('/', methods=['GET', 'POST'])
+# def index():
+#     if request.method == 'POST':
+#         phone_number = request.form['phone_number']
+#         response = requests.get(f"https://parking.pythonanywhere.com/api/parking_spots?phone_number={phone_number}")
+#         if response.status_code == 200:
+#             data = response.json()
+#             return render_template('index.html', data=data)
+#         else:
+#             return render_template('auth.html', error="Invalid phone number or API error")
+#     return render_template('auth.html')
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    if request.method == 'POST':
-        phone_number = request.form['phone_number']
-        response = requests.get(f"https://parking.pythonanywhere.com/api/parking_spots?phone_number={phone_number}")
-        if response.status_code == 200:
-            data = response.json()
-            return render_template('index.html', data=data)
-        else:
-            return render_template('auth.html', error="Invalid phone number or API error")
-    return render_template('auth.html')
+    register_url = url_for('register')
+    return render_template('auth.html', register_url=register_url)
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    # your registration logic here
+    return render_template('register.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
