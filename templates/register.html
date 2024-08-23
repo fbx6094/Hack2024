@@ -155,7 +155,16 @@
       top: 20%;
       left: 45%;
     }
-
+    #logg{
+      text-decoration: none;
+      color: black;
+      transition: color 0.3s ease-out;
+      text-align: center;
+    }
+    #logg:hover{
+      color: #aaa;
+      transition: color 0.3s ease-out;
+    }
     p,
     h1 {
       font-family: Inter;
@@ -218,7 +227,7 @@
       <input type="text" id="name" name="name" placeholder="Имя">
       <input type="text" id="phone_number" name="phone_number" placeholder="Номер телефона">
       <button type="button" id="register-btn">Зарегистрироваться</button>
-      <p>У вас уже есть аккаунт? <a href="/">Войти</a></p>
+      <p>У вас уже есть аккаунт? <a href="/" id="logg">Войти</a></p>
     </div>
     <div id="niz" alt=""></div>
   </form>
