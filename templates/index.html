@@ -178,14 +178,12 @@
             <th>Дата</th>
             <th>Продолжительность парковки</th>
             <th>Местоположение парковки</th>
-            <th>Код парковки</th>
         </tr>
         {% for history in data.parking_history %}
         <tr>
             <td>{{ history.date }}</td>
             <td>{{ history.duration }}</td>
             <td>{{ history.location }}</td>
-            <td>histori.parking.code</td>
         </tr>
         {% endfor %}
     </table>
