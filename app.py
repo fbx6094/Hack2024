@@ -15,6 +15,11 @@ def index():
             return render_template('auth.html', error="Invalid phone number or API error")
     return render_template('auth.html')
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    # your registration logic here
+    return render_template('register.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
     
